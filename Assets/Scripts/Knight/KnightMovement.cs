@@ -14,38 +14,38 @@ public class KnightMovement : MonoBehaviour {
 
     Rigidbody2D rb2d;
     Animator anim;
-    Collider2D bodyCol;
+    Collider2D bodyCol;         //Colide with other entities
+    Collider2D feetCol;         //Colide with terrain
 
-
-    bool isLookingRight;
+    bool inGround;
 
     private void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         bodyCol = GetComponent<Collider2D>();
+        feetCol = gameObject.transform.Find("Feet").GetComponent<Collider2D>();
     }
     // Start is called before the first frame update
     void Start() {
-        
     }
-
     // Update is called once per frame
     void Update() {
         move();
-        jump();
+        verticalMove();
         checkIfFlip();
-        updateVerticalAnimation();
+        updateAnimation();
     }
 
     private void move() {
         rb2d.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * runSpeed, rb2d.velocity.y);
     }
 
-    private void jump() {
-        if (Input.GetButtonDown("Jump")) {
+    private void verticalMove() {
+        if (Input.GetButtonDown("Jump") && inGround) {
             rb2d.AddForce(new Vector2(0, jumpForce));
         }
 
+        //Modify the gravity to set the common videogame jump and air movement
         if (rb2d.velocity.y < Mathf.Epsilon) {
             rb2d.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         } else if (rb2d.velocity.y > Mathf.Epsilon && !Input.GetButton("Jump")) {
@@ -53,17 +53,14 @@ public class KnightMovement : MonoBehaviour {
         }
     }
 
-    private void updateVerticalAnimation() {
-        if (!bodyCol.IsTouchingLayers(LayerMask.GetMask("Terrain"))) {
+    private void updateAnimation() {
+        checkIfGround();
+        if (!inGround) {
             anim.SetBool("Run", false);
-            anim.SetBool("Ground", false);
-            if (rb2d.velocity.y < 0) {
-                anim.SetBool("Jump", false);
-            } else if (rb2d.velocity.y > 0) {
-                anim.SetBool("Jump", true);
-            }
+
+            anim.SetBool("Jump", rb2d.velocity.y > 0);
+
         } else {
-            anim.SetBool("Ground", true);
             anim.SetBool("Run", Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon);
         }
     }
@@ -72,5 +69,10 @@ public class KnightMovement : MonoBehaviour {
         if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > Mathf.Epsilon) {
             transform.localScale = new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x), 1f);
         }
+    }
+
+    private void checkIfGround() {
+        inGround = feetCol.IsTouchingLayers(LayerMask.GetMask("Terrain"));
+        anim.SetBool("Ground", inGround);
     }
 }
