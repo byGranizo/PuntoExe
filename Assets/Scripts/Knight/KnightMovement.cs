@@ -156,6 +156,7 @@ public class KnightMovement : MonoBehaviour {
             rb2d.velocity = new Vector2(hitSpeed * -transform.localScale.x, rb2d.velocity.y);
         }
     }
+
     //When attack animation reach
     private void setAttackFalse() {
         isAttacking = false;
