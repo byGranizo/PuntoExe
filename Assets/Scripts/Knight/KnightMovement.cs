@@ -42,7 +42,6 @@ public class KnightMovement : MonoBehaviour {
         checkIfHitted();
         verticalMove();
         updateAnimation();
-        attack();
     }
 
 //Loop
@@ -53,6 +52,8 @@ public class KnightMovement : MonoBehaviour {
             jump();
 
             guard();
+
+            attack();
         }
     }
 
