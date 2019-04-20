@@ -5,21 +5,37 @@ using UnityEngine;
 
 public class KnightMovement : MonoBehaviour {
 
+    [Header("Movement")]
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 400;
     [Range(1f, 6f)]
     [SerializeField] float fallMultiplier = 2.5f;
     [Range(1f, 6f)]
     [SerializeField] float lowJumpMultiplier = 2f;
+
+    [Header("Combat")]
     [Range(2f, 10f)]
     [SerializeField] float hitSpeed = 4f;
     [Range(5f, 15f)]
     [SerializeField] float hitSpeedGuarded = 8f;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip jumpSFX = null;
+    [SerializeField] AudioClip landingSFX = null;
+    [SerializeField] AudioClip attackASfx = null;
+    [SerializeField] AudioClip attackBSfx = null;
+    [SerializeField] AudioClip attackCSfx = null;
+    [SerializeField] AudioClip hitSFX = null;
+    [SerializeField] AudioClip hitGuardedSFX = null;
+    [SerializeField] AudioClip dieSFX = null;
+
+
+
     Rigidbody2D rb2d;
     Animator anim;
     Collider2D bodyCol;         //Colide with other entities
     Collider2D feetCol;         //Colide with terrain
+    AudioSource audioSource;
 
     bool inGround;
     bool isGuarding;
@@ -32,6 +48,7 @@ public class KnightMovement : MonoBehaviour {
         anim = GetComponent<Animator>();
         bodyCol = GetComponent<Collider2D>();
         feetCol = gameObject.transform.Find("Feet").GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start() {
@@ -68,6 +85,7 @@ public class KnightMovement : MonoBehaviour {
     private void jump() {
         if (Input.GetButtonDown("Jump") && inGround && !hitted) {
             rb2d.AddForce(new Vector2(0, jumpForce));
+            //audioSource.PlayClipAtPoint(jumpSFX, Camera.main.transform.position);
         }
     }
 
@@ -145,6 +163,7 @@ public class KnightMovement : MonoBehaviour {
     public void die() {
         isAlive = false;
         anim.SetTrigger("Die");
+
     }
 
     public void getHit() {
