@@ -22,8 +22,8 @@ public class KnightMovement : MonoBehaviour {
     [Header("SFX")]
     [SerializeField] AudioClip jumpSFX = null;
     float jumpVolume = 0.1f;
-    [SerializeField] AudioClip landingSFX = null;
-    float landingVolume = 0.1f;
+    //[SerializeField] AudioClip landingSFX = null;
+    //float landingVolume = 0.1f;
     [SerializeField] AudioClip attackASfx = null;
     float attackAVolume = 0.1f;
     [SerializeField] AudioClip attackBSfx = null;
