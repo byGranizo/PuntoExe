@@ -5,21 +5,48 @@ using UnityEngine;
 
 public class KnightMovement : MonoBehaviour {
 
+    [Header("Movement")]
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 400;
     [Range(1f, 6f)]
     [SerializeField] float fallMultiplier = 2.5f;
     [Range(1f, 6f)]
     [SerializeField] float lowJumpMultiplier = 2f;
+
+    [Header("Combat")]
     [Range(2f, 10f)]
-    [SerializeField] float hitSpeed = 4f;
+    [SerializeField] float hitSpeed = 6f;
     [Range(5f, 15f)]
     [SerializeField] float hitSpeedGuarded = 8f;
+
+    [Header("SFX")]
+    [SerializeField] AudioClip jumpSFX = null;
+    float jumpVolume = 0.1f;
+    [SerializeField] AudioClip landingSFX = null;
+    float landingVolume = 0.1f;
+    [SerializeField] AudioClip attackASfx = null;
+    float attackAVolume = 0.1f;
+    [SerializeField] AudioClip attackBSfx = null;
+    float attackBVolume = 0.1f;
+    [SerializeField] AudioClip attackCSfx = null;
+    float attackCVolume = 0.1f;
+    [SerializeField] AudioClip hitSFX = null;
+    float hitVolume = 0.1f;
+    [SerializeField] AudioClip hitGuardedSFX = null;
+    float hitGuardedVolume = 0.1f;
+    [SerializeField] AudioClip dieSFX = null;
+    float dieVolume = 0.1f;
+
+    [Header("VFX")]
+    [SerializeField] GameObject shieldBlock = null;
+
+
 
     Rigidbody2D rb2d;
     Animator anim;
     Collider2D bodyCol;         //Colide with other entities
     Collider2D feetCol;         //Colide with terrain
+    Transform[] shieldSpawns;
 
     bool inGround;
     bool isGuarding;
@@ -32,6 +59,7 @@ public class KnightMovement : MonoBehaviour {
         anim = GetComponent<Animator>();
         bodyCol = GetComponent<Collider2D>();
         feetCol = gameObject.transform.Find("Feet").GetComponent<Collider2D>();
+        //shieldSpawns = gameObject.transform.Find("Shield").transform.Find("Shield_1")
     }
     // Start is called before the first frame update
     void Start() {
@@ -42,6 +70,12 @@ public class KnightMovement : MonoBehaviour {
         checkIfHitted();
         verticalMove();
         updateAnimation();
+
+        if (Input.GetMouseButtonDown(0)) {
+            getHit();
+        }
+
+        
     }
 
 //Loop
@@ -68,6 +102,7 @@ public class KnightMovement : MonoBehaviour {
     private void jump() {
         if (Input.GetButtonDown("Jump") && inGround && !hitted) {
             rb2d.AddForce(new Vector2(0, jumpForce));
+            AudioSource.PlayClipAtPoint(jumpSFX, Camera.main.transform.position, jumpVolume);
         }
     }
 
@@ -90,12 +125,15 @@ public class KnightMovement : MonoBehaviour {
             if (Input.GetButtonDown("Fire1")) {
                 isAttacking = true;
                 anim.SetTrigger("Attack A");
+                AudioSource.PlayClipAtPoint(attackASfx, Camera.main.transform.position, attackAVolume);
             } else if (Input.GetButtonDown("Fire2")) {
                 isAttacking = true;
                 anim.SetTrigger("Attack B");
+                AudioSource.PlayClipAtPoint(attackBSfx, Camera.main.transform.position, attackBVolume);
             } else if (Input.GetButtonDown("Fire3")) {
                 isAttacking = true;
                 anim.SetTrigger("Attack C");
+                AudioSource.PlayClipAtPoint(attackCSfx, Camera.main.transform.position, attackCVolume);
             }
         }
     }
@@ -145,20 +183,31 @@ public class KnightMovement : MonoBehaviour {
     public void die() {
         isAlive = false;
         anim.SetTrigger("Die");
+        AudioSource.PlayClipAtPoint(dieSFX, Camera.main.transform.position, dieVolume);
+
     }
 
     public void getHit() {
         hitted = true;
         if (isGuarding) {
             rb2d.velocity = new Vector2(hitSpeedGuarded * -transform.localScale.x, rb2d.velocity.y);
+            AudioSource.PlayClipAtPoint(hitGuardedSFX, Camera.main.transform.position, hitGuardedVolume);
+            instantiateBlockShield();
         } else {
             anim.SetTrigger("Hit");
             rb2d.velocity = new Vector2(hitSpeed * -transform.localScale.x, rb2d.velocity.y);
+            AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, hitVolume);
         }
+        
     }
 
     //When attack animation reach
     private void setAttackFalse() {
         isAttacking = false;
+    }
+
+    private void instantiateBlockShield() {
+        GameObject go = Instantiate(shieldBlock, transform.Find("Shield").GetChild(UnityEngine.Random.Range(0, transform.Find("Shield").childCount)).transform) as GameObject;
+        go.transform.localPosition = new Vector2(0, 0);
     }
 }
