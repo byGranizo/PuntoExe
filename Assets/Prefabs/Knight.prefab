@@ -109,7 +109,6 @@ MonoBehaviour:
   hitSpeed: 6
   hitSpeedGuarded: 8
   jumpSFX: {fileID: 8300000, guid: 7d0fc154aeb3a5e43a74b018aa055b8b, type: 3}
-  landingSFX: {fileID: 8300000, guid: f2b3e966b0f1ac844b3f64f8963525af, type: 3}
   attackASfx: {fileID: 8300000, guid: 30b9f8358426c85478cdfda83014ec2d, type: 3}
   attackBSfx: {fileID: 8300000, guid: d5a10309bba7f7844985dfcf4b9aa6d8, type: 3}
   attackCSfx: {fileID: 8300000, guid: e6c7dd07ac0ee6f4fa83da879488c47d, type: 3}
