@@ -6,7 +6,7 @@ public class DragonMoves : MonoBehaviour
 {
     private Animator anim;//control the Animator component of GsmrObject
     private Rigidbody2D rb2d;
-    public float speed;
+    [SerializeField] float speed;
     private float time = 10.5f;
 
     int direction;
