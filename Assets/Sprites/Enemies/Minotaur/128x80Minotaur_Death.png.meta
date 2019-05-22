@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: fab3dec074dbbe04cbce5ad593be91b4
+guid: 9a5aa70cc9c5bc649b38e1df7eefb898
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Minotaur_Death_0
-    21300002: Minotaur_Death_1
-    21300004: Minotaur_Death_2
-    21300006: Minotaur_Death_3
-    21300008: Minotaur_Death_4
-    21300010: Minotaur_Death_5
-    21300012: Minotaur_Death_6
-    21300014: Minotaur_Death_7
-    21300016: Minotaur_Death_8
-    21300018: Minotaur_Death_9
-    21300020: Minotaur_Death_10
+    21300000: 128x80Minotaur_Death_0
+    21300002: 128x80Minotaur_Death_1
+    21300004: 128x80Minotaur_Death_2
+    21300006: 128x80Minotaur_Death_3
+    21300008: 128x80Minotaur_Death_4
+    21300010: 128x80Minotaur_Death_5
+    21300012: 128x80Minotaur_Death_6
+    21300014: 128x80Minotaur_Death_7
+    21300016: 128x80Minotaur_Death_8
+    21300018: 128x80Minotaur_Death_9
+    21300020: 128x80Minotaur_Death_10
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -54,8 +54,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Minotaur_Death_0
+      name: 128x80Minotaur_Death_0
       rect:
         serializedVersion: 2
         x: 7
@@ -120,13 +120,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c636a2cb4a226040b1b9b1b74e9b71d
+      spriteID: 9b724a40567e8a04187eca15cbd27381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_1
+      name: 128x80Minotaur_Death_1
       rect:
         serializedVersion: 2
         x: 137
@@ -140,13 +140,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44e095798c7e6d147852e482bfd83f27
+      spriteID: 560d60be98686c34697ea7a55a9e72c7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_2
+      name: 128x80Minotaur_Death_2
       rect:
         serializedVersion: 2
         x: 271
@@ -160,13 +160,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c7ac2b4ad9cedc45b3192cd5479ef2b
+      spriteID: c7eacd6efd7f8f945b92b57341ece747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_3
+      name: 128x80Minotaur_Death_3
       rect:
         serializedVersion: 2
         x: 399
@@ -180,13 +180,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0764ec8a7eabbdf4d959721bdd0d96bb
+      spriteID: bf59bd48dc0649a44a5fbd2ea4f4c0fc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_4
+      name: 128x80Minotaur_Death_4
       rect:
         serializedVersion: 2
         x: 528
@@ -200,13 +200,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c80f1606629abea4083746aa8095a2aa
+      spriteID: bb6e2ccdab0671b4c9fe07d9c3d03e3b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_5
+      name: 128x80Minotaur_Death_5
       rect:
         serializedVersion: 2
         x: 660
@@ -220,13 +220,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4858728e58b8a04ca60c8dbe672430a
+      spriteID: e4731058b82973c409784423cf2c7a2c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_6
+      name: 128x80Minotaur_Death_6
       rect:
         serializedVersion: 2
         x: 801
@@ -240,13 +240,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8e28e3570e42ff4cbbc15f7f8a8a4d6
+      spriteID: 9274defd4fc1548408bfba29d66b3f6f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_7
+      name: 128x80Minotaur_Death_7
       rect:
         serializedVersion: 2
         x: 928
@@ -260,13 +260,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 276e14654204d65499e0c66cda6b7d71
+      spriteID: a21021d0fc58d9e4e992583863bacc99
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_8
+      name: 128x80Minotaur_Death_8
       rect:
         serializedVersion: 2
         x: 1056
@@ -280,13 +280,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f05f41cbd68d35449a2b3bffdd2c2d83
+      spriteID: 04fcc78180f755545ba9a14fbbcd3d2f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_9
+      name: 128x80Minotaur_Death_9
       rect:
         serializedVersion: 2
         x: 1184
@@ -300,13 +300,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b5591830c79b2c47bb9b37ff53061ea
+      spriteID: c91968c4348f0c646b9f1be511d62170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_10
+      name: 128x80Minotaur_Death_10
       rect:
         serializedVersion: 2
         x: 1312
@@ -320,7 +320,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bd4d997e6803864085062fe289bbbb4
+      spriteID: 01b74529ac81ff5479e26ef9925a1591
       vertices: []
       indices: 
       edges: []
@@ -328,7 +328,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ec0b99a0d0dba0c4d805f5176ca9247d
+    spriteID: 07ce49cad0a62324fb5bf97b7dd4a181
     vertices: []
     indices: 
     edges: []

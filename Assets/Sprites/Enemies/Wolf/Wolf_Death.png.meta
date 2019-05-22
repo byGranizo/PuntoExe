@@ -1,18 +1,13 @@
 fileFormatVersion: 2
-guid: fab3dec074dbbe04cbce5ad593be91b4
+guid: 5eac5f65574e6ef48a49bf1961225261
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Minotaur_Death_0
-    21300002: Minotaur_Death_1
-    21300004: Minotaur_Death_2
-    21300006: Minotaur_Death_3
-    21300008: Minotaur_Death_4
-    21300010: Minotaur_Death_5
-    21300012: Minotaur_Death_6
-    21300014: Minotaur_Death_7
-    21300016: Minotaur_Death_8
-    21300018: Minotaur_Death_9
-    21300020: Minotaur_Death_10
+    21300000: Wolf_Death_0
+    21300002: Wolf_Death_1
+    21300004: Wolf_Death_2
+    21300006: Wolf_Death_3
+    21300008: Wolf_Death_4
+    21300010: Wolf_Death_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -106,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Minotaur_Death_0
+      name: Wolf_Death_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 55
-        height: 46
+        width: 36
+        height: 24
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,19 +115,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c636a2cb4a226040b1b9b1b74e9b71d
+      spriteID: bafd6548ab0509b4f91ead1e6598ae33
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_1
+      name: Wolf_Death_1
       rect:
         serializedVersion: 2
-        x: 137
+        x: 81
         y: 0
-        width: 55
-        height: 43
+        width: 36
+        height: 30
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,19 +135,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44e095798c7e6d147852e482bfd83f27
+      spriteID: 6fab282518dcb7c408accdb4e1262ae2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_2
+      name: Wolf_Death_2
       rect:
         serializedVersion: 2
-        x: 271
+        x: 162
         y: 0
-        width: 55
-        height: 36
+        width: 38
+        height: 21
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,19 +155,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c7ac2b4ad9cedc45b3192cd5479ef2b
+      spriteID: 09d25bee1146a7c45beb504370bb9f30
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_3
+      name: Wolf_Death_3
       rect:
         serializedVersion: 2
-        x: 399
+        x: 241
         y: 0
-        width: 55
-        height: 35
+        width: 43
+        height: 12
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,19 +175,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0764ec8a7eabbdf4d959721bdd0d96bb
+      spriteID: 3b15adfb67c0adc4992dbc76a1d09f72
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_4
+      name: Wolf_Death_4
       rect:
         serializedVersion: 2
-        x: 528
+        x: 321
         y: 0
-        width: 55
-        height: 35
+        width: 43
+        height: 11
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,19 +195,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c80f1606629abea4083746aa8095a2aa
+      spriteID: 659b97d2a5f774b48bcbbb0b32fbe8e1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minotaur_Death_5
+      name: Wolf_Death_5
       rect:
         serializedVersion: 2
-        x: 660
+        x: 401
         y: 0
-        width: 56
-        height: 37
+        width: 43
+        height: 11
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,107 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4858728e58b8a04ca60c8dbe672430a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Minotaur_Death_6
-      rect:
-        serializedVersion: 2
-        x: 801
-        y: 0
-        width: 52
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8e28e3570e42ff4cbbc15f7f8a8a4d6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Minotaur_Death_7
-      rect:
-        serializedVersion: 2
-        x: 928
-        y: 0
-        width: 53
-        height: 15
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 276e14654204d65499e0c66cda6b7d71
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Minotaur_Death_8
-      rect:
-        serializedVersion: 2
-        x: 1056
-        y: 0
-        width: 53
-        height: 14
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f05f41cbd68d35449a2b3bffdd2c2d83
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Minotaur_Death_9
-      rect:
-        serializedVersion: 2
-        x: 1184
-        y: 0
-        width: 53
-        height: 14
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b5591830c79b2c47bb9b37ff53061ea
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Minotaur_Death_10
-      rect:
-        serializedVersion: 2
-        x: 1312
-        y: 0
-        width: 53
-        height: 14
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0bd4d997e6803864085062fe289bbbb4
+      spriteID: 4cf251a1f1f0f4e4ead59e9d2b9baa35
       vertices: []
       indices: 
       edges: []
@@ -328,7 +223,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ec0b99a0d0dba0c4d805f5176ca9247d
+    spriteID: 8821665321a0d5548a54f147a7f41840
     vertices: []
     indices: 
     edges: []

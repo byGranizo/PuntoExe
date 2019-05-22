@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.08
+  speedMove: 0.73
+  length: 1.6
 --- !u!95 &8291538353436890362
 Animator:
   serializedVersion: 3
