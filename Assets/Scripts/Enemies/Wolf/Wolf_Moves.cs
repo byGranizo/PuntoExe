@@ -23,6 +23,7 @@ public class Wolf_Moves : MonoBehaviour
 
         starPosition = transform.position.x;
         counter = transform.position.x;
+        anim.SetTrigger("Idle2Walk");
     }
     
     // Update is called once per frame
@@ -45,5 +46,25 @@ public class Wolf_Moves : MonoBehaviour
       
     }
 
-    
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        
+        if (col.tag == "Player")
+        {
+            //speedMove = 0f;
+            anim.SetTrigger("Walk2Attack");
+
+        }
+
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+           anim.SetTrigger("Attack2Walk");
+        }
+
+    }
+
 }
