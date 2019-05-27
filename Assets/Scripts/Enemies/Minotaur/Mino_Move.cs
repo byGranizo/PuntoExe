@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Mino_Move : MonoBehaviour
 {
+    Collider2D collider;
+    bool enter;
+    GameObject player;
+
     private Animator anim;//control the Animator component of GsmrObject
     private Rigidbody2D rb2d;
     //int direction;//use to direction´s enemies
@@ -22,6 +26,8 @@ public class Mino_Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Knight");
+        enter = false;
         speedMove = 0.8f;       
         starPosition = transform.position.x;
         
@@ -48,6 +54,8 @@ public class Mino_Move : MonoBehaviour
            
             //speed = 0.4f;
             anim.SetTrigger("do_attack");
+            collider = col;
+            GetHit(collider);
             //anim.ResetTrigger("finish_attack");
             //Debug.Log("Muñecajo");
         }
@@ -65,7 +73,13 @@ public class Mino_Move : MonoBehaviour
             //anim.ResetTrigger("do_attack");
 
         }
+        enter = false;
+    }
 
+    void OnTriggerStay(Collider other)
+    {
+
+        enter = false;
     }
 
     void Update()
@@ -83,31 +97,42 @@ public class Mino_Move : MonoBehaviour
 
     }
 
-    /*private void Flip()
-    {
-
-        direction *= -1;
-
-    }*/
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.Log(speed);
-        //transform.position = new Vector3(speed, myY, 0);
-        //Debug.Log("" + speed);
-           
-        /*if (direction == 1)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            transform.Translate(speed, 0, 0);
-        }
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true; //gira el sprite
-            transform.Translate(-speed, 0, 0);
-        }*/
-
+       
     }
+
+    public void GetHit(Collider2D col)
+    {
+        //if ((playerPos - miPos) < 1)
+        //{
+        //Debug.Log("Bueno");
+        //}
+        enter = true;
+        if (col != null && enter)
+        {
+            if (col.tag == "Player")
+            {
+                Debug.Log("Muerdo");
+
+                KnightMovement km;
+                km = player.GetComponent<KnightMovement>();
+
+                km.reciveAttack();
+            }
+        }
+
+
+        /*damage--;
+
+        if (damage == 0)
+        {
+           // Destroy(GameObject.);
+        }
+        */
+    }
+
 }
 
-    
+
