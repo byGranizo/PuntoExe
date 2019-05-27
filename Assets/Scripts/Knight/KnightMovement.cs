@@ -40,7 +40,7 @@ public class KnightMovement : MonoBehaviour {
     [Header("VFX")]
     [SerializeField] GameObject shieldBlock = null;
 
-
+    GameObject wl;
 
     Rigidbody2D rb2d;
     Animator anim;
@@ -125,6 +125,8 @@ public class KnightMovement : MonoBehaviour {
             if (Input.GetButtonDown("Fire1")) {
                 isAttacking = true;
                 anim.SetTrigger("Attack A");
+                               
+
                 AudioSource.PlayClipAtPoint(attackASfx, Camera.main.transform.position, attackAVolume);
             } else if (Input.GetButtonDown("Fire2")) {
                 isAttacking = true;
@@ -210,4 +212,10 @@ public class KnightMovement : MonoBehaviour {
         GameObject go = Instantiate(shieldBlock, transform.Find("Shield").GetChild(UnityEngine.Random.Range(0, transform.Find("Shield").childCount)).transform) as GameObject;
         go.transform.localPosition = new Vector2(0, 0);
     }
+
+    public void reciveAttack()
+    {
+        Debug.Log("Muero!!");
+    }
+   
 }

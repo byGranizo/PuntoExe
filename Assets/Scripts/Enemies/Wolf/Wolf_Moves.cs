@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Wolf_Moves : MonoBehaviour
 {
+    Collider2D collider;
+    bool enter;
+    GameObject player;
+
     private Animator anim;//control the Animator component of GsmrObject
     private Rigidbody2D rb2d;
 
@@ -15,9 +19,13 @@ public class Wolf_Moves : MonoBehaviour
 
     float currentPosition;
     float lastPosition;
+
+    [SerializeField] int damage;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Knight");
+        enter = false;
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -43,7 +51,7 @@ public class Wolf_Moves : MonoBehaviour
 
         lastPosition = transform.position.x;
        
-      
+        //GetHit();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -53,7 +61,8 @@ public class Wolf_Moves : MonoBehaviour
         {
             //speedMove = 0f;
             anim.SetTrigger("Walk2Attack");
-
+            collider = col;
+            GetHit(collider);
         }
 
     }
@@ -64,7 +73,43 @@ public class Wolf_Moves : MonoBehaviour
         {
            anim.SetTrigger("Attack2Walk");
         }
+        enter = false;
+    }
 
+    void OnTriggerStay(Collider other)
+    {
+
+        enter = false;
+    }
+
+    public void GetHit(Collider2D col)
+    {
+        //if ((playerPos - miPos) < 1)
+        //{
+        //Debug.Log("Bueno");
+        //}
+        enter = true;
+        if(col != null && enter)
+        {
+            if(col.tag == "Player")
+            {
+                Debug.Log("Muerdo");
+
+                KnightMovement km;
+                km = player.GetComponent<KnightMovement>();
+
+                km.reciveAttack();
+            }
+        }
+        
+
+        /*damage--;
+
+        if (damage == 0)
+        {
+           // Destroy(GameObject.);
+        }
+        */
     }
 
 }
