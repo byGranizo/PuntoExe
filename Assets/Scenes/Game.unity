@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bgSky
       objectReference: {fileID: 0}
+    - target: {fileID: 2024515121893395841, guid: fea5a027e472e04489e64398b8220c55,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9066446973197695882, guid: fea5a027e472e04489e64398b8220c55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69333,6 +69338,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bgTrees
       objectReference: {fileID: 0}
+    - target: {fileID: 455170048956066545, guid: 3858c13ad1ca25a45b71e23bb1e99bae,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6703856821247491333, guid: 3858c13ad1ca25a45b71e23bb1e99bae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69434,7 +69444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648766779}
   - component: {fileID: 1648766778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69465,7 +69475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648766777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2, y: -3.1, z: 10}
+  m_LocalPosition: {x: 3.68, y: -3.1, z: 10}
   m_LocalScale: {x: 15.501981, y: 15.501981, z: 15.501981}
   m_Children:
   - {fileID: 295668502}
@@ -69530,6 +69540,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bgGrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023774785593370532, guid: 62d98ac5c2c343546a2310d38d7ee55f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8925054224467731075, guid: 62d98ac5c2c343546a2310d38d7ee55f,
         type: 3}
@@ -69621,6 +69636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bgClouds
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939334258937977203, guid: 7093b368d3f3b3b4c8266c5a3d28fc29,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2757024426514621929, guid: 7093b368d3f3b3b4c8266c5a3d28fc29,
         type: 3}
