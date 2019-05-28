@@ -8,9 +8,11 @@ public class Mino_Move : MonoBehaviour
     bool enter;
     GameObject player;
 
+    [SerializeField] int damage;
+
     private Animator anim;//control the Animator component of GsmrObject
     private Rigidbody2D rb2d;
-    //int direction;//use to direction´s enemies
+   
     [SerializeField] float speed;
     [SerializeField]float speedMove;
     
@@ -21,8 +23,6 @@ public class Mino_Move : MonoBehaviour
     float currentPosition;
     float lastPosition;
 
-    //GameObject ogo;
-    //float knightX;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,25 +39,16 @@ public class Mino_Move : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Wall")
-        {
-            //speedMove = 0f;
-            //Debug.Log("Wall" + speed);
-            
-            //Flip();
-        }
-
+       
         if (col.tag == "Player")
         {
             speedMove = 0f;
             anim.SetTrigger("finish_walk");
            
-            //speed = 0.4f;
             anim.SetTrigger("do_attack");
             collider = col;
-            GetHit(collider);
-            //anim.ResetTrigger("finish_attack");
-            //Debug.Log("Muñecajo");
+            getHit(collider);
+       
         }
 
     }
@@ -67,11 +58,8 @@ public class Mino_Move : MonoBehaviour
         {
             speedMove = 0.8f;
             anim.SetTrigger("go_walk");
-           
-            //Debug.Log("Salgoooooo");
             anim.SetTrigger("finish_attack");
-            //anim.ResetTrigger("do_attack");
-
+            
         }
         enter = false;
     }
@@ -84,8 +72,6 @@ public class Mino_Move : MonoBehaviour
 
     void Update()
     {
-        //anim.SetFloat("Velocity", speed);
-        //Debug.Log( Mathf.Abs(rb2d.velocity.x));
         counter += Time.deltaTime * speedMove;
         transform.position = new Vector2(starPosition + Mathf.PingPong(counter, length), transform.position.y);
 
@@ -97,18 +83,8 @@ public class Mino_Move : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void getHit(Collider2D col)
     {
-       
-    }
-
-    public void GetHit(Collider2D col)
-    {
-        //if ((playerPos - miPos) < 1)
-        //{
-        //Debug.Log("Bueno");
-        //}
         enter = true;
         if (col != null && enter)
         {
@@ -122,15 +98,24 @@ public class Mino_Move : MonoBehaviour
                 km.reciveAttack();
             }
         }
+    }
 
-
-        /*damage--;
-
-        if (damage == 0)
+    //this method is used to set damage 
+    public void reciveAttack()
+    {
+        damage--;
+        if(damage == 0)
         {
-           // Destroy(GameObject.);
+            Debug.Log(damage);
+            anim.SetTrigger("walk2dead");
         }
-        */
+    }
+
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
     }
 
 }

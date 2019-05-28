@@ -44,14 +44,10 @@ public class Wolf_Moves : MonoBehaviour
 
         currentPosition = transform.position.x;
 
-        //Debug.Log(transform.position.x);
-
         if (currentPosition < lastPosition) transform.localScale = new Vector3(-1, 1, 1);
         if (currentPosition > lastPosition) transform.localScale = new Vector3(1, 1, 1);
 
         lastPosition = transform.position.x;
-       
-        //GetHit();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -59,10 +55,9 @@ public class Wolf_Moves : MonoBehaviour
         
         if (col.tag == "Player")
         {
-            //speedMove = 0f;
             anim.SetTrigger("Walk2Attack");
             collider = col;
-            GetHit(collider);
+            getHit(collider);
         }
 
     }
@@ -82,12 +77,9 @@ public class Wolf_Moves : MonoBehaviour
         enter = false;
     }
 
-    public void GetHit(Collider2D col)
+    public void getHit(Collider2D col)
     {
-        //if ((playerPos - miPos) < 1)
-        //{
-        //Debug.Log("Bueno");
-        //}
+        
         enter = true;
         if(col != null && enter)
         {
@@ -101,15 +93,24 @@ public class Wolf_Moves : MonoBehaviour
                 km.reciveAttack();
             }
         }
-        
-
-        /*damage--;
-
+       
+    }
+    //this method is used to set damage 
+    public void reciveAttack()
+    {
+        damage--;
         if (damage == 0)
         {
-           // Destroy(GameObject.);
+            Debug.Log(damage);
+            anim.SetTrigger("walk2dead");
         }
-        */
+    }
+
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
     }
 
 }

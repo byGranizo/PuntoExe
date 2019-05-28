@@ -6,11 +6,12 @@ public class Worm_Moves : MonoBehaviour
 {
     Collider2D collider;
     bool enter;
+    bool moving;
+    
     private Animator anim;//control the Animator component of GsmrObject
     private Rigidbody2D rb2d;
 
     [SerializeField] [Range(0f, 0.05f)] float speedMove;
-
    
     float starPosition;
     float counter;
@@ -23,9 +24,11 @@ public class Worm_Moves : MonoBehaviour
 
     float distance;
     GameObject player;//Instantiate the main player 
+
     // Start is called before the first frame update
     void Start()
     {
+        moving = false;
         enter = false;
         player = GameObject.Find("Knight");
 
@@ -37,8 +40,7 @@ public class Worm_Moves : MonoBehaviour
 
         starPosition = transform.position.x;
         counter = transform.position.x;
-        //anim.SetTrigger("Idle2Walk");
-        
+      
     }
 
     void FixedUpdate()
@@ -50,31 +52,45 @@ public class Worm_Moves : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);           
             transform.Translate(Vector3.right * speedMove);
             anim.SetTrigger("Idle2Walk");
-           // Debug.Log("Delante");
+        
         }
         if (transform.position.x > playerPosX)
         {
-            //meter perseguir personaje
+          
             transform.localScale = new Vector3(-1, 1, 1);
             transform.Translate(Vector3.left* speedMove);
-            anim.SetTrigger("Idle2Walk");
-            //Debug.Log("Atras");
-           
+            if (!moving)
+            {
+                 anim.SetTrigger("Idle2Walk");
+            }
+            else
+            {
+                anim.SetTrigger("Walk2Idle");
+            }
+                   
         }
        
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        
 
         if (col.tag == "Player")
         {
             //speedMove = 0f;
             anim.SetTrigger("Walk2Attack");
             collider = col;
-            GetHit(collider);
+            getHit(collider);
         }
 
+        if (col.tag == "Wall")
+        {
+            speedMove = 0f;
+            anim.SetTrigger("Walk2Idle");
+           
+        }
+        moving = true;
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -83,21 +99,22 @@ public class Worm_Moves : MonoBehaviour
         {
             anim.SetTrigger("Attack2Walk");
         }
-
+        if(col.tag == "Wall")
+        {
+            moving = false;
+        }       
     }
 
     void OnTriggerStay(Collider other)
     {
-
+        speedMove = 0f;
+        anim.SetTrigger("Walk2Idle");
         enter = false;
+        moving = true;
     }
 
-    public void GetHit(Collider2D col)
-    {
-        //if ((playerPos - miPos) < 1)
-        //{
-        //Debug.Log("Bueno");
-        //}
+    public void getHit(Collider2D col)
+    {       
         enter = true;
         if (col != null && enter)
         {
@@ -111,15 +128,6 @@ public class Worm_Moves : MonoBehaviour
                 km.reciveAttack();
             }
         }
-
-
-        /*damage--;
-
-        if (damage == 0)
-        {
-           // Destroy(GameObject.);
-        }
-        */
     }
 
     // Update is called once per frame
