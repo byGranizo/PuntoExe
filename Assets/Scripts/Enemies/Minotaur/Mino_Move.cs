@@ -28,9 +28,9 @@ public class Mino_Move : MonoBehaviour
     {
         player = GameObject.Find("Knight");
         enter = false;
-        speedMove = 0.8f;       
+             
         starPosition = transform.position.x;
-        
+        counter = transform.position.x;
         //direction = 1;
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();//set component animator
@@ -48,7 +48,11 @@ public class Mino_Move : MonoBehaviour
             anim.SetTrigger("do_attack");
             collider = col;
             getHit(collider);
-       
+           
+        }
+        if (col.tag == "Wall")
+        {
+            reciveAttack();
         }
 
     }
@@ -56,7 +60,7 @@ public class Mino_Move : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            speedMove = 0.8f;
+            //speedMove = 0.8f;
             anim.SetTrigger("go_walk");
             anim.SetTrigger("finish_attack");
             
@@ -79,6 +83,7 @@ public class Mino_Move : MonoBehaviour
        
         if (currentPosition < lastPosition) transform.localScale = new Vector3(-1, 1, 1);
         if (currentPosition > lastPosition) transform.localScale = new Vector3(1, 1, 1);
+
         lastPosition = transform.position.x;
 
     }
@@ -108,6 +113,8 @@ public class Mino_Move : MonoBehaviour
         {
             Debug.Log(damage);
             anim.SetTrigger("walk2dead");
+            speedMove = 0;
+            Destroy(gameObject, 3);
         }
     }
 
@@ -115,7 +122,7 @@ public class Mino_Move : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+     
     }
 
 }

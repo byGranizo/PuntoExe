@@ -55,11 +55,16 @@ public class Wolf_Moves : MonoBehaviour
         
         if (col.tag == "Player")
         {
+            
             anim.SetTrigger("Walk2Attack");
             collider = col;
             getHit(collider);
         }
 
+        if (col.tag == "Wall")
+        {
+            reciveAttack();
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -98,12 +103,14 @@ public class Wolf_Moves : MonoBehaviour
     //this method is used to set damage 
     public void reciveAttack()
     {
-        damage--;
+        
         if (damage == 0)
-        {
-            Debug.Log(damage);
-            anim.SetTrigger("walk2dead");
+        {           
+            anim.SetTrigger("Run2Dead");
+            speedMove = 0;
+            Destroy(gameObject, 5);
         }
+        damage--;
     }
 
 

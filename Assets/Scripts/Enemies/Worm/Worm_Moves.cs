@@ -7,7 +7,7 @@ public class Worm_Moves : MonoBehaviour
     Collider2D collider;
     bool enter;
     bool moving;
-    
+    [SerializeField] int damage;
     private Animator anim;//control the Animator component of GsmrObject
     private Rigidbody2D rb2d;
 
@@ -51,7 +51,7 @@ public class Worm_Moves : MonoBehaviour
         {        
             transform.localScale = new Vector3(1, 1, 1);           
             transform.Translate(Vector3.right * speedMove);
-            anim.SetTrigger("Idle2Walk");
+            if(speedMove > 0)anim.SetTrigger("Idle2Walk");
         
         }
         if (transform.position.x > playerPosX)
@@ -61,7 +61,8 @@ public class Worm_Moves : MonoBehaviour
             transform.Translate(Vector3.left* speedMove);
             if (!moving)
             {
-                 anim.SetTrigger("Idle2Walk");
+                if (speedMove > 0) anim.SetTrigger("Idle2Walk");
+               
             }
             else
             {
@@ -83,13 +84,7 @@ public class Worm_Moves : MonoBehaviour
             collider = col;
             getHit(collider);
         }
-
-        if (col.tag == "Wall")
-        {
-            speedMove = 0f;
-            anim.SetTrigger("Walk2Idle");
-           
-        }
+       
         moving = true;
     }
 
@@ -102,13 +97,14 @@ public class Worm_Moves : MonoBehaviour
         if(col.tag == "Wall")
         {
             moving = false;
-        }       
+        }
+
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerStay2D(Collider2D other)
     {
         speedMove = 0f;
-        anim.SetTrigger("Walk2Idle");
+        //anim.SetTrigger("Walk2Idle");
         enter = false;
         moving = true;
     }
@@ -127,6 +123,20 @@ public class Worm_Moves : MonoBehaviour
 
                 km.reciveAttack();
             }
+        }
+    }
+
+    //this method is used to set damage 
+    public void reciveAttack()
+    {
+
+        damage--;
+        Debug.Log("recibo");
+        if (damage == 0)
+        {
+            speedMove = 0;
+            anim.SetTrigger("Walk2Dead");
+            Destroy(gameObject,5f);
         }
     }
 
