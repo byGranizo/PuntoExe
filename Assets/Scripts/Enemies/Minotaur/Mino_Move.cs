@@ -47,8 +47,6 @@ public class Mino_Move : MonoBehaviour
            
             anim.SetTrigger("do_attack");
             collider = col;
-            getHit(collider);
-           
         }
         if (col.tag == "Wall")
         {
@@ -88,19 +86,19 @@ public class Mino_Move : MonoBehaviour
 
     }
 
-    public void getHit(Collider2D col)
+    public void hit()
     {
         enter = true;
-        if (col != null && enter)
+        if (collider != null && enter)
         {
-            if (col.tag == "Player")
+            if (collider.tag == "Player")
             {
                 Debug.Log("Muerdo");
 
                 KnightMovement km;
                 km = player.GetComponent<KnightMovement>();
 
-                km.reciveAttack();
+                km.getHit();
             }
         }
     }
@@ -118,12 +116,11 @@ public class Mino_Move : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-     
+    public void die() {
+        Destroy(gameObject);
     }
+
+
 
 }
 

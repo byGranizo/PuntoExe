@@ -47,9 +47,10 @@ GameObject:
   - component: {fileID: 5895104834039127757}
   - component: {fileID: 4792185179959912340}
   - component: {fileID: 1104409580885901071}
+  - component: {fileID: 320988170}
   m_Layer: 10
   m_Name: Knight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0be0176fea1d24d933c708b5bb7e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 3
   runSpeed: 5
   jumpForce: 450
   fallMultiplier: 2.5
@@ -260,6 +262,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &320988170
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52791581003219071}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0490353, y: -0.20999998}
+  serializedVersion: 2
+  m_Radius: 0.6009648
 --- !u!1 &52791581055423682
 GameObject:
   m_ObjectHideFlags: 0

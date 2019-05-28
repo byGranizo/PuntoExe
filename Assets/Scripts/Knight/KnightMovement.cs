@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class KnightMovement : MonoBehaviour {
 
+    [Header("General")]
+    [SerializeField] int lives = 3;
+
     [Header("Movement")]
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 400;
@@ -22,8 +25,6 @@ public class KnightMovement : MonoBehaviour {
     [Header("SFX")]
     [SerializeField] AudioClip jumpSFX = null;
     float jumpVolume = 0.1f;
-    //[SerializeField] AudioClip landingSFX = null;
-    //float landingVolume = 0.1f;
     [SerializeField] AudioClip attackASfx = null;
     float attackAVolume = 0.1f;
     [SerializeField] AudioClip attackBSfx = null;
@@ -39,8 +40,6 @@ public class KnightMovement : MonoBehaviour {
 
     [Header("VFX")]
     [SerializeField] GameObject shieldBlock = null;
-
-    GameObject wl;
 
     Rigidbody2D rb2d;
     Animator anim;
@@ -125,8 +124,6 @@ public class KnightMovement : MonoBehaviour {
             if (Input.GetButtonDown("Fire1")) {
                 isAttacking = true;
                 anim.SetTrigger("Attack A");
-                               
-
                 AudioSource.PlayClipAtPoint(attackASfx, Camera.main.transform.position, attackAVolume);
             } else if (Input.GetButtonDown("Fire2")) {
                 isAttacking = true;
@@ -184,12 +181,13 @@ public class KnightMovement : MonoBehaviour {
 //Other methods
     public void die() {
         isAlive = false;
-        anim.SetTrigger("Die");
+        anim.SetBool("Die", true);
         AudioSource.PlayClipAtPoint(dieSFX, Camera.main.transform.position, dieVolume);
-
+        StartCoroutine(loadGameOver());
     }
 
     public void getHit() {
+        if (!isAlive) { return; }
         hitted = true;
         if (isGuarding) {
             rb2d.velocity = new Vector2(hitSpeedGuarded * -transform.localScale.x, rb2d.velocity.y);
@@ -199,6 +197,7 @@ public class KnightMovement : MonoBehaviour {
             anim.SetTrigger("Hit");
             rb2d.velocity = new Vector2(hitSpeed * -transform.localScale.x, rb2d.velocity.y);
             AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, hitVolume);
+            reciveAttack();
         }
         
     }
@@ -213,9 +212,24 @@ public class KnightMovement : MonoBehaviour {
         go.transform.localPosition = new Vector2(0, 0);
     }
 
-    public void reciveAttack()
-    {
-        Debug.Log("Muero!!");
+    public void reciveAttack() {
+        lives--;
+        if (lives == 0) {
+            die();
+        }
     }
-   
+
+    private IEnumerator loadGameOver() {
+        yield return new WaitForSeconds(3);
+        FindObjectOfType<LevelLoad>().loadEnd();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "Enemy") {
+            collision.GetComponent<Enemy>().die();
+        }
+    }
+
+
+
 }

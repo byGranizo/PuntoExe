@@ -27,4 +27,8 @@ public class LevelLoad : MonoBehaviour {
     public void loadStart() {
         SceneManager.LoadScene("Start");
     }
+
+    public void loadEnd() {
+        SceneManager.LoadScene("End");
+    }
 }

@@ -10,14 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 8258697844042930861}
   - component: {fileID: 8258697844042930862}
+  - component: {fileID: 2283045726861505017}
   - component: {fileID: 8258697844042930863}
   - component: {fileID: 8258697844042930860}
   - component: {fileID: 8258697844042930859}
   - component: {fileID: 8258697844042930858}
   - component: {fileID: 8258697844042930857}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Worm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2283045726861505017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258697844042930896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974a799ea8002f74c9b0e74a1c3f50ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &8258697844042930863
 Animator:
   serializedVersion: 3
